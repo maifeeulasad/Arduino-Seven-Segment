@@ -35,11 +35,11 @@ void setup() {
   //delay(4000);
   //sevenSegment.interupt=true;
 
-sevenSegment.print_decimal(1250);
+//sevenSegment.print_decimal(1250);
 
 }
 
 void loop() {
-//sevenSegment.print_decimal(1250);
+sevenSegment.print_decimal(1250);
 
 }
