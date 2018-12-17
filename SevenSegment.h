@@ -1,5 +1,5 @@
-#ifndef Blink_h
-#define Blink_h
+#ifndef SevenSegment_h
+#define SevenSegment_h
 
 #include <Arduino.h>
 #include <Thread.h>
