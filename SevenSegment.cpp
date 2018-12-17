@@ -5,6 +5,8 @@
 SevenSegment::SevenSegment(int pins[8],int segment_pins_in[4])
 {
 
+    controller=ThreadController();
+
     interupt=false;
 
 
@@ -66,15 +68,16 @@ void SevenSegment::reset_display()
     digitalWrite(dp, HIGH);
 }
 
-void SevenSegment::print_decimal(int decimal)
+void SevenSegment::print_decimal()
 {
 
     //while(interupt==false)
+    while(true)
     {
         for (int i = 0; i < segment_count; i++)
         {
-            print_digit(decimal % 10, segment_pins[i]);
-            decimal = decimal / 10;
+            print_digit(number_p % 10, segment_pins[i]);
+            number_p = number_p / 10;
             delay(5);
         }
     }
@@ -130,3 +133,28 @@ void SevenSegment::print_digit(int digit, int pos)
 
 }
 
+void SevenSegment::print_number(int number)
+{
+
+    Thread* myThread = new Thread();
+
+
+    if(controller.size(false)==0)
+    {
+
+        controller.add(myThread);
+    }
+    else
+    {
+        controller.clear();
+        controller.add(myThread);
+    }
+
+    number_p=number;
+
+    myThread->onRun(print_decimal);
+
+    myThread->run();
+
+
+}

@@ -1,0 +1,10 @@
+{
+    "name": "SevenSegment",
+    "keywords": "print_digit, print_decimal",
+    "description": "An Arduino library for using 7-segment(s)",
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/maifeeulasad/Arduino-Seven-Segment.git"
+    }
+}
